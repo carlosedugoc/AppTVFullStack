@@ -1,0 +1,110 @@
+<div class="container main-container">
+  <div class="row"> 
+    <div class="col-md-6">
+    
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Recursos</h4>
+        <div class="alert alert-info" *ngIf="ok" role="alert">
+            <strong>El registro se ha creado satisfactoriamente</strong>
+          </div>
+        <hr>
+
+        <form #forma="ngForm">
+              <div class="form-group">
+                  <label for="txtNombre">Nombre</label>
+                  <input 
+                      type="text" 
+                      [(ngModel)]="recurso.nombre" 
+                      name="txtNombre"
+                      class="form-control" 
+                      placeholder="Nombre"
+                      required="required"
+                      #nombre="ngModel">
+
+
+                <div *ngIf="nombre.errors?.required && !nombre.pristine" >
+                    Campo requerido
+                  </div>
+                </div>
+
+        
+                <div class="form-group">
+                  <label for="txtDescripcion">Descripción</label>
+                  <input type="text" 
+                         name="txtDescripcion" 
+                         [(ngModel)]="recurso.descripcion" 
+                         class="form-control" 
+                         placeholder="Descripción" 
+                         required="required"
+                         #descripcion="ngModel">
+                         <div *ngIf="descripcion.errors?.required && !descripcion.pristine" >
+                            Campo requerido
+                          </div>
+                </div>
+
+             
+        
+                <div class="form-group">
+                  <label for="txtRuta">Ruta</label>
+                  <input type="text" 
+                          name="txtRuta" 
+                          class="form-control" 
+                          placeholder="Ruta" 
+                          [(ngModel)]="recurso.ruta"
+                          required="required"
+                          #ruta="ngModel">
+                          <div *ngIf="ruta.errors?.required && !ruta.pristine" >
+                              Campo requerido
+                            </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                       <div class="form-group">
+                  <label for="chkEstado">Estado</label>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <input type="checkbox" name="chkEstado" aria-label="Checkbox for following text input" [(ngModel)]="recurso.estado">
+                    </span>
+                  </div>
+        
+        
+                </div>
+                  </div>
+                  <div class="col-md-3">
+                    
+                <div class="form-group">
+                  <label for="txtOrden">Orden</label>
+                  <input type="number" name="txtOrden" class="form-control" placeholder="Orden" aria-describedby="helpId" [(ngModel)]="recurso.orden">
+                </div>
+                  </div>
+                </div>
+        
+                            
+                <div class="form-group">
+                  
+            
+                          <button type="button" 
+                                  (click)="guardar(forma)" 
+                                  name="btnGuardar"  
+                                  class="btn btn-primary btn-lg"
+                                  [disabled] = "!forma.valid" >Guardar</button>
+                
+                          <button type="button" (click)="cancelar(forma)" name="btnCancelar"  class="btn btn-danger btn-lg">Cancelar</button>
+
+                  
+                </div>
+               
+              </form>
+        
+
+
+      </div>
+    
+    
+    
+    
+    </div>
+  </div>
+  
+</div>
