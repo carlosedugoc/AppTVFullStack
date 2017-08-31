@@ -27,5 +27,9 @@ export class RecursoComponent implements OnInit {
     })
   }
 
+  cancelar(forma:NgForm){
+        this.ok = false
+        forma.reset()
+  }
 
 }
