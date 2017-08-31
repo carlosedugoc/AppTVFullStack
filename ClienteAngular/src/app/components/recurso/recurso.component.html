@@ -1,0 +1,56 @@
+<div class="container main-container">
+  <div class="row"> 
+    <div class="col-md-8">
+    <div class="alert alert-info" *ngIf="ok" role="alert">
+      <strong>El registro se ha creado satisfactoriamente</strong>
+    </div>
+<form #forma>
+  
+
+      <div class="form-group">
+          <label for="txtNombre">Nombre</label>
+          <input type="text" [(ngModel)]="recurso.nombre" name="txtNombre" id="" class="form-control" placeholder="Nombre" aria-describedby="helpId">
+        </div>
+
+        <div class="form-group">
+          <label for="txtDescripcion">Descripción</label>
+          <input type="text" name="txtDescripcion" [(ngModel)]="recurso.descripcion" class="form-control" placeholder="Descripción" aria-describedby="helpId">
+        </div>
+
+        <div class="form-group">
+          <label for="txtRuta">Ruta</label>
+          <input type="text" name="txtRuta" id="" class="form-control" placeholder="Ruta" [(ngModel)]="recurso.ruta" aria-describedby="helpId">
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+               <div class="form-group">
+          <label for="chkEstado">Estado</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="checkbox" name="chkEstado" aria-label="Checkbox for following text input" [(ngModel)]="recurso.estado">
+            </span>
+          </div>
+
+
+        </div>
+          </div>
+          <div class="col-md-3">
+            
+        <div class="form-group">
+          <label for="txtOrden">Orden</label>
+          <input type="number" name="txtOrden" class="form-control" placeholder="Orden" aria-describedby="helpId" [(ngModel)]="recurso.orden">
+        </div>
+          </div>
+        </div>
+
+                    
+        <div class="form-group">
+          <button type="button" (click)="guardar(forma)" name="btnGuardar"  class="btn btn-primary btn-lg btn-block">Guardar</button>
+        </div>
+       
+      </form>
+
+    </div>
+  </div>
+  
+</div>
