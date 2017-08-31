@@ -20,6 +20,7 @@ export class RecursoComponent implements OnInit {
   }
 
   guardar(forma:NgForm){
+    console.log(forma)
     this.recursoService.guardar(this.recurso).subscribe(data=>{
         this.ok = true
         //this.recurso = new Recurso(1,'','','',true)
@@ -28,6 +29,7 @@ export class RecursoComponent implements OnInit {
   }
 
   cancelar(forma:NgForm){
+    console.log(forma)
         this.ok = false
         forma.reset()
   }

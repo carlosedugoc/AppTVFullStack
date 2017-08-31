@@ -9,7 +9,7 @@
           </div>
         <hr>
 
-        <form #forma>
+        <form #forma="ngForm">
               <div class="form-group">
                   <label for="txtNombre">Nombre</label>
                   <input 
@@ -18,8 +18,15 @@
                       name="txtNombre"
                       class="form-control" 
                       placeholder="Nombre"
-                      required="required">
+                      required="required"
+                      #nombre="ngModel">
+
+
+                <div *ngIf="nombre.errors?.required && !nombre.pristine" >
+                    Campo requerido
+                  </div>
                 </div>
+
         
                 <div class="form-group">
                   <label for="txtDescripcion">Descripción</label>
@@ -28,8 +35,14 @@
                          [(ngModel)]="recurso.descripcion" 
                          class="form-control" 
                          placeholder="Descripción" 
-                         required="required">
+                         required="required"
+                         #descripcion="ngModel">
+                         <div *ngIf="descripcion.errors?.required && !descripcion.pristine" >
+                            Campo requerido
+                          </div>
                 </div>
+
+             
         
                 <div class="form-group">
                   <label for="txtRuta">Ruta</label>
@@ -38,7 +51,11 @@
                           class="form-control" 
                           placeholder="Ruta" 
                           [(ngModel)]="recurso.ruta"
-                          required="required">
+                          required="required"
+                          #ruta="ngModel">
+                          <div *ngIf="ruta.errors?.required && !ruta.pristine" >
+                              Campo requerido
+                            </div>
                 </div>
 
                 <div class="row">
@@ -67,7 +84,11 @@
                 <div class="form-group">
                   
             
-                          <button type="button" (click)="guardar(forma)" name="btnGuardar"  class="btn btn-primary btn-lg">Guardar</button>
+                          <button type="button" 
+                                  (click)="guardar(forma)" 
+                                  name="btnGuardar"  
+                                  class="btn btn-primary btn-lg"
+                                  [disabled] = "!forma.valid" >Guardar</button>
                 
                           <button type="button" (click)="cancelar(forma)" name="btnCancelar"  class="btn btn-danger btn-lg">Cancelar</button>
 
